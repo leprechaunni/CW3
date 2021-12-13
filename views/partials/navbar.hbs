@@ -1,0 +1,31 @@
+<nav>
+   <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Онлайн-игры</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+         {{#if isHome}}
+            <li class="active"><a href="/">Главная</a></li>
+         {{else}}
+            <li><a href="/">Главная</a></li>
+         {{/if}}
+
+         {{#if isGirls}}
+            <li class="active"><a href="/girlsGames">Для девочек</a></li>
+         {{else}}
+            <li><a href="/girlsGames">Для девочек</a></li>
+         {{/if}}
+
+         {{#if isBoys}}
+            <li class="active"><a href="/boysGames">Для мальчиков</a></li>
+         {{else}}
+            <li><a href="/boysGames">Для мальчиков</a></li>
+         {{/if}}
+
+         {{#if isAdd}}
+            <li class="active"><a href="/addGames">Добавить игру</a></li>
+         {{else}}
+            <li><a href="/addGames">Добавить игру</a></li>
+         {{/if}}
+      </ul>
+   </div>
+</nav>
