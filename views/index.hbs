@@ -1,2 +1,30 @@
-<h1>Home page</h1>
-<a href="/about">About page</a>
+
+<h1>Все игры</h1>
+
+{{#if games.length}}
+{{#each games}}
+
+<div class="row" style="float: left; margin:7px;">
+  <div class="card" style="width: 250px; height: 300px;">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="{{img}}" style="height: 160px;">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{title}}</span>
+      <p><a href="/game/{{id}}" target="_blank">Играть</a></p>
+      <p><a href="/game/{{id}}/edit?allow=true">Редактировать</a></p>
+      
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+      <p>{{description}}</p>
+    </div>
+  </div>
+</div>
+
+
+  {{/each}}
+{{else}}
+<p>Игр пока нет</p>
+{{/if}}
+

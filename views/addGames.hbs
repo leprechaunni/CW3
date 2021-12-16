@@ -1,5 +1,6 @@
 <h1>Добавить новую игру</h1>
-<form action="/addGames" method="post">
+
+<form action="/addGames" method="post" >
    <div class="input-field">
       <input id="title" name="title" type="text" class="validate" required>
       <label for="title">Название игры</label>
@@ -9,17 +10,12 @@
    <div class="input-field">
       <input id="img" name="img" type="text" class="validate" required>
       <label for="img">URL обложки</label>
-      <span class="helper-text" data-error="Введите url обложки игры"></span>
+      <span class="helper-text" data-error="Введите URL обложки игры"></span>
    </div>
-
-   <div class="file-field input-field">
-      <div class="btn">
-         <span>File</span>
-         <input type="file">
-      </div>
-      <div class="file-path-wrapper">
-         <input id="filepath" name="filepath" class="file-path validate" type="text" placeholder="Выберите один файл">
-      </div>
+   
+   <div class="input-field ">
+      <textarea id="description" name="description" class="materialize-textarea"></textarea>
+      <label for="description">Описание</label>
    </div>
 
    <button class="btn btn-primary">Добавить игру</button>

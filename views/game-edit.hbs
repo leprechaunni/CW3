@@ -1,0 +1,33 @@
+<h1>Редактировать игру {{game.title}}</h1>
+
+<form action="/game/edit" method="post">
+   <div class="input-field">
+      <input id="title" name="title" type="text" class="validate" required value="{{game.title}}">
+      <label for="title">Название игры</label>
+      <span class="helper-text" data-error="Введите название игры"></span>
+   </div>
+
+   <div class="input-field">
+      <input id="img" name="img" type="text" class="validate" required value="{{game.img}}">
+      <label for="img">URL обложки</label>
+      <span class="helper-text" data-error="Введите URL обложки игры"></span>
+   </div>
+   
+   <div class="input-field ">
+      <textarea id="description" name="description" class="materialize-textarea" value="{{game.description}}"></textarea>
+      <label for="description">Описание</label>
+   </div>
+
+   <input type="hidden" name="id" value="{{game.id}}">
+
+   <button class="waves-effect waves-light btn-large">Сохранить изменения</button>
+
+
+
+
+</form>
+
+<form action="/game/delete" method="post" class="course-edit">
+   <input type="hidden" name="id" value="{{game.id}}">
+   <button class="waves-effect waves-red btn-flat ">Удалить игру</button>
+</form>
