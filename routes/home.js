@@ -37,9 +37,6 @@ router.post('/game/delete', async (req, res) => {
    res.redirect('/')
 })
 
-
-
-
 router.get('/game/:id', async (req, res) => {
    const game = await Game.getById(req.params.id)
    res.render('game', {
