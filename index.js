@@ -1,7 +1,11 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const Handlebars = require('handlebars');
 const exphbs = require('express-handlebars');
+const {
+   allowInsecurePrototypeAccess,
+} = require('@handlebars/allow-prototype-access');
 const app = express();
 
 const homeRoutes = require('./routes/home');
@@ -12,6 +16,7 @@ const addGamesRoutes = require('./routes/addGames');
 const hbs = exphbs.create({
    defaultLayout: 'main',
    extname: 'hbs',
+   handlebars: allowInsecurePrototypeAccess(Handlebars),
 });
 app.engine('hbs', hbs.engine); //регистрируем движок
 app.set('view engine', 'hbs'); //начинаем его использовать
@@ -30,7 +35,8 @@ const PORT = process.env.PORT || 3000;
 
 async function start() {
    try {
-      const url = 'mongodb+srv://victoria:eVNyeqtlsT9QCbwy@cluster0.magin.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+      const url =
+         'mongodb+srv://victoria:eVNyeqtlsT9QCbwy@cluster0.magin.mongodb.net/games';
       await mongoose.connect(url, { useNewUrlParser: true });
       app.listen(PORT, () => {
          console.log(`server is running on ${PORT}`);
