@@ -33,11 +33,12 @@ router.post('/game/edit', async (req, res) => {
 });
 
 router.post('/game/delete', async (req, res) => {
-   const { id } = req.body;
-   delete req.body.id;
-   await Game.findByIdAndDelete(id, req.body);
-
-   res.redirect('/');
+   try {
+      await Game.deleteOne({ _id: req.body.id });
+      res.redirect('/');
+   } catch (e) {
+      console.log(e);
+   }
 });
 
 router.get('/game/:id', async (req, res) => {
