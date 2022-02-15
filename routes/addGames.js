@@ -16,6 +16,7 @@ router.post('/', async (req, res) => {
       description: req.body.description,
       genre: req.body.genre,
       url: req.body.url,
+      userId: req.user,
    });
 
    try {

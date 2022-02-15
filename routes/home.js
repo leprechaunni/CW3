@@ -3,7 +3,7 @@ const Game = require('../models/game');
 const router = Router();
 
 router.get('/', async (req, res) => {
-   const games = await Game.find();
+   const games = await Game.find().populate('userId', 'email name');
    res.render('index', {
       title: 'Главная страница',
       isHome: true,

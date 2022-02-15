@@ -14,6 +14,10 @@ const game = new Schema({
       type: String,
    },
    url: String,
+   userId: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+   }
 });
 
 module.exports = model('Game', game);
